@@ -4,6 +4,10 @@ function Repeater(selector) {
   this.parent = this.repeatabeContent.parent();
 };
 
+Repeater.prototype.append = function(html) {
+  this.parent.append(html[0].outerHTML);
+};
+
 Repeater.prototype.clear = function() {
   this.parent.empty();
 };
@@ -27,7 +31,7 @@ Repeater.prototype.repeat = function(repeatCount) {
     if (repeater.shouldInterrupt(i)) {
       repeater.interruptWith(html);
     }
-    repeater.parent.append(html[0].outerHTML);
+    repeater.append(html);
   }
 };
 
